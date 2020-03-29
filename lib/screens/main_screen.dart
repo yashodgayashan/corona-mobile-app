@@ -42,7 +42,7 @@ class _HomeState extends State<Home> {
     return items;
   }
 
-  onChangedDropDownItem(Country selectedCountry){
+  onChangedDropDownItem(Country selectedCountry) {
     setState(() {
       _selectedCountry = selectedCountry;
     });
@@ -63,10 +63,31 @@ class _HomeState extends State<Home> {
           children: <Widget>[
             Row(
               children: <Widget>[
-                DropdownButton(
-                  value: _selectedCountry,
-                  items: _dropdownMenuItems,
-                  onChanged: onChangedDropDownItem,
+                Expanded(
+                    flex: 1,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text("Select Country"),
+                    )),
+                Expanded(
+                  flex: 2,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: DropdownButton(
+                      value: _selectedCountry,
+                      items: _dropdownMenuItems,
+                      onChanged: onChangedDropDownItem,
+                    ),
+                  ),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: RaisedButton(
+                      child: Text("Select"),
+                      onPressed: () {
+                        debugPrint(
+                            "Pressed and value is ${_selectedCountry.country}");
+                      }),
                 )
               ],
             ),
