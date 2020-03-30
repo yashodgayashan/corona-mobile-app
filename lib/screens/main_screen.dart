@@ -9,6 +9,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  Future<CoronaData> post;
   static List<Country> countries = <Country>[
     Country(codeName: "AF", countryName: "Afghanistan"),
     Country(codeName: "AL", countryName: "Albania"),
@@ -34,6 +35,7 @@ class _HomeState extends State<Home> {
     super.initState();
     _dropdownMenuItems = buildDropDownMenuItems(countries);
     _selectedCountry = _dropdownMenuItems[0].value;
+    post = HttpService().getPost(id: _selectedCountry.code);
   }
 
   List<DropdownMenuItem<Country>> buildDropDownMenuItems(List counties) {
@@ -71,7 +73,7 @@ class _HomeState extends State<Home> {
             Row(
               children: <Widget>[
                 Expanded(
-                    flex: 1,
+                    flex: 2,
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text("Select Country"),
@@ -87,22 +89,35 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                 ),
-                Expanded(
-                  flex: 1,
-                  child: RaisedButton(
-                      child: Text("Select"),
-                      onPressed: () {
-                        Future<CoronaData> post =
-                            HttpService().getPost(id: _selectedCountry.code);
-                        debugPrint(
-                            "Pressed and value is ${_selectedCountry.country}");
-                      }),
-                )
               ],
             ),
+            countryInfo()
           ],
         ),
       ),
+    );
+  }
+
+  Widget countryInfo() {
+    return FutureBuilder<CoronaData>(
+      future: HttpService().getPost(id: _selectedCountry.code),
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          return Column(
+            children: <Widget>[
+              Text(snapshot.data.country.country),
+              Row(
+                children: <Widget>[
+                  Expanded(child: Text("Total Active Cases")),
+                  Expanded(
+                      child: Text(snapshot.data.totalActiveCases.toString())),
+                ],
+              ),
+            ],
+          );
+        }
+        return Container(child: Center(child: CircularProgressIndicator()));
+      },
     );
   }
 }

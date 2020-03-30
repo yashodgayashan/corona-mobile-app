@@ -8,7 +8,7 @@ class Country{
   Country({@required this.codeName,@required this.countryName});
   
   factory Country.fromJSON(Map<String, dynamic> json){
-    return Country(codeName: json["title"] as String, countryName: json["code"] as String);
+    return Country(codeName: json["code"] as String, countryName: json["title"] as String);
   }
 
   String get code => this.codeName;
