@@ -1,3 +1,4 @@
+import 'package:corona_app/utills/http_service.dart';
 import 'package:flutter/material.dart';
 import 'package:corona_app/utills/country.dart';
 
@@ -85,6 +86,7 @@ class _HomeState extends State<Home> {
                   child: RaisedButton(
                       child: Text("Select"),
                       onPressed: () {
+                        HttpService().getPost(id: "LK");
                         debugPrint(
                             "Pressed and value is ${_selectedCountry.country}");
                       }),

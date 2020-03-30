@@ -1,7 +1,8 @@
 import 'package:flutter/foundation.dart';
+import 'package:corona_app/utills/country.dart';
 
 class CoronaData {
-  String title;
+  Country country;
   int totalCases;
   int totalRecovered;
   int totalUnresolved;
@@ -12,7 +13,7 @@ class CoronaData {
   int totalSeriousCases;
 
   CoronaData(
-      {@required this.title,
+      {@required this.country,
       @required this.totalCases,
       @required this.totalRecovered,
       @required this.totalUnresolved,
@@ -24,7 +25,7 @@ class CoronaData {
 
   factory CoronaData.fromJSON(Map<String, dynamic> json) {
     return CoronaData(
-        title: "country",
+        country: Country.fromJSON(json["info"] as Map<String, dynamic>),
         totalCases: json["total_cases"] as int,
         totalRecovered: json["total_recovered"] as int,
         totalUnresolved: json["total_unresolved"] as int,
