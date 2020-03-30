@@ -103,17 +103,68 @@ class _HomeState extends State<Home> {
       future: HttpService().getPost(id: _selectedCountry.code),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          return Column(
-            children: <Widget>[
-              Text(snapshot.data.country.country),
-              Row(
-                children: <Widget>[
-                  Expanded(child: Text("Total Active Cases")),
-                  Expanded(
-                      child: Text(snapshot.data.totalActiveCases.toString())),
-                ],
-              ),
-            ],
+          return Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: Column(
+              children: <Widget>[
+                Text(snapshot.data.country.country),
+                Row(
+                  children: <Widget>[
+                    Expanded(child: Text("Total Cases")),
+                    Expanded(child: Text(snapshot.data.totalCases.toString())),
+                  ],
+                ),
+                Row(
+                  children: <Widget>[
+                    Expanded(child: Text("Total Recovered")),
+                    Expanded(
+                        child: Text(snapshot.data.totalRecovered.toString())),
+                  ],
+                ),
+                Row(
+                  children: <Widget>[
+                    Expanded(child: Text("Total Unresolved")),
+                    Expanded(
+                        child: Text(snapshot.data.totalUnresolved.toString())),
+                  ],
+                ),
+                Row(
+                  children: <Widget>[
+                    Expanded(child: Text("Total Deaths")),
+                    Expanded(child: Text(snapshot.data.totalDeaths.toString())),
+                  ],
+                ),
+                Row(
+                  children: <Widget>[
+                    Expanded(child: Text("New Cases Today")),
+                    Expanded(
+                        child: Text(snapshot.data.totalNewCasesToday.toString())),
+                  ],
+                ),
+                Row(
+                  children: <Widget>[
+                    Expanded(child: Text("New Deaths Today")),
+                    Expanded(
+                        child:
+                            Text(snapshot.data.totalNewDeathsToday.toString())),
+                  ],
+                ),
+                Row(
+                  children: <Widget>[
+                    Expanded(child: Text("Total Active Cases")),
+                    Expanded(
+                        child: Text(snapshot.data.totalActiveCases.toString())),
+                  ],
+                ),
+                Row(
+                  children: <Widget>[
+                    Expanded(child: Text("Total Serious Cases")),
+                    Expanded(
+                        child: Text(snapshot.data.totalSeriousCases.toString())),
+                  ],
+                ),
+              ],
+            ),
           );
         }
         return Container(child: Center(child: CircularProgressIndicator()));
