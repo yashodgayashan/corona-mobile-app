@@ -7,7 +7,7 @@ import 'package:http/http.dart';
 class HttpService {
   final String getUrl = "https://thevirustracker.com/free-api?countryTotal=";
 
-  Future<void> getPost({@required String id}) async {
+  Future<CoronaData> getPost({@required String id}) async {
     Response res = await get(getUrl + id);
 
     if(res.statusCode == 200){
@@ -16,7 +16,8 @@ class HttpService {
       CoronaData coronaData = CoronaData.fromJSON(subData[0]);
       debugPrint(coronaData.country.country);
       debugPrint(coronaData.country.code);
-
+      debugPrint(coronaData.totalActiveCases.toString());
+      return coronaData;
     }
   }
 }

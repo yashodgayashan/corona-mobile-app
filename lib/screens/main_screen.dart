@@ -1,3 +1,4 @@
+import 'package:corona_app/utills/corona_info.dart';
 import 'package:corona_app/utills/http_service.dart';
 import 'package:flutter/material.dart';
 import 'package:corona_app/utills/country.dart';
@@ -16,7 +17,12 @@ class _HomeState extends State<Home> {
     Country(codeName: "AR", countryName: "Argentina"),
     Country(codeName: "AM", countryName: "Armenia"),
     Country(codeName: "AU", countryName: "Australia"),
-    Country(codeName: "AT", countryName: "Austria")
+    Country(codeName: "AT", countryName: "Austria"),
+    Country(codeName: "AZ", countryName: "Azerbaijan"),
+    Country(codeName: "BS", countryName: "Bahamas"),
+    Country(codeName: "BD", countryName: "Bangladesh"),
+    Country(codeName: "BY", countryName: "Belarus"),
+    Country(codeName: "BE", countryName: "Belgium"),
   ];
 
   List<DropdownMenuItem<Country>> _dropdownMenuItems;
@@ -86,7 +92,8 @@ class _HomeState extends State<Home> {
                   child: RaisedButton(
                       child: Text("Select"),
                       onPressed: () {
-                        HttpService().getPost(id: "LK");
+                        Future<CoronaData> post =
+                            HttpService().getPost(id: _selectedCountry.code);
                         debugPrint(
                             "Pressed and value is ${_selectedCountry.country}");
                       }),
