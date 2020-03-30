@@ -8,14 +8,14 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   static List<Country> countries = <Country>[
-    Country("AF", "Afghanistan"),
-    Country("AL", "Albania"),
-    Country("DZ", "Algeria"),
-    Country("AO", "Angola"),
-    Country("AR", "Argentina"),
-    Country("AM", "Armenia"),
-    Country("AU", "Australia"),
-    Country("AT", "Austria")
+    Country(codeName: "AF", countryName: "Afghanistan"),
+    Country(codeName: "AL", countryName: "Albania"),
+    Country(codeName: "DZ", countryName: "Algeria"),
+    Country(codeName: "AO", countryName: "Angola"),
+    Country(codeName: "AR", countryName: "Argentina"),
+    Country(codeName: "AM", countryName: "Armenia"),
+    Country(codeName: "AU", countryName: "Australia"),
+    Country(codeName: "AT", countryName: "Austria")
   ];
 
   List<DropdownMenuItem<Country>> _dropdownMenuItems;

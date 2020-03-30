@@ -35,4 +35,3 @@ class CoronaData {
         totalSeriousCases: json["total_serious_cases"] as int);
   }
 }
-
