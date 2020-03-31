@@ -84,7 +84,7 @@ class _HomeState extends State<Home> {
     Country(codeName: "HK", countryName: "Hong Kong"),
     Country(codeName: "HU", countryName: "Hungary"),
     Country(codeName: "IS", countryName: "Iceland"),
-  Country(codeName: "IN", countryName: "India"),
+    Country(codeName: "IN", countryName: "India"),
     Country(codeName: "ID", countryName: "Indonesia"),
     Country(codeName: "IR", countryName: "Iran"),
     Country(codeName: "IQ", countryName: "Iraq"),
@@ -93,7 +93,13 @@ class _HomeState extends State<Home> {
     Country(codeName: "IT", countryName: "Italy"),
     Country(codeName: "JM", countryName: "Jamaica"),
     Country(codeName: "JP", countryName: "Japan"),
-    Country(codeName: "JO", countryName: "Jordan")
+    Country(codeName: "JO", countryName: "Jordan"),
+    Country(codeName: "KZ", countryName: "Kazakhstan"),
+    Country(codeName: "KE", countryName: "Kenya"),
+    Country(codeName: "KP", countryName: "Korea"),
+    Country(codeName: "XK", countryName: "Kosovo"),
+    Country(codeName: "KW", countryName: "Kuwait"),
+    Country(codeName: "KG", countryName: "Kyrgyzstan"),
   ];
 
   List<DropdownMenuItem<Country>> _dropdownMenuItems;
