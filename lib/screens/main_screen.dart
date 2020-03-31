@@ -62,7 +62,12 @@ class _HomeState extends State<Home> {
     Country(codeName: "ER", countryName: "Eritrea"),
     Country(codeName: "EE", countryName: "Estonia"),
     Country(codeName: "ET", countryName: "Ethiopia"),
-
+    Country(codeName: "FK", countryName: "Falkland Islands"),
+    Country(codeName: "FJ", countryName: "Fiji"),
+    Country(codeName: "FI", countryName: "Finland"),
+    Country(codeName: "FR", countryName: "France"),
+    Country(codeName: "GF", countryName: "French Guiana"),
+    Country(codeName: "TF", countryName: "FS Territories"),
   ];
 
   List<DropdownMenuItem<Country>> _dropdownMenuItems;
@@ -118,7 +123,7 @@ class _HomeState extends State<Home> {
                       child: Text("Select Country"),
                     )),
                 Expanded(
-                  flex: 2,
+                  flex: 3,
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: DropdownButton(
