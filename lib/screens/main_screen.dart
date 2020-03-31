@@ -29,7 +29,7 @@ class _HomeState extends State<Home> {
     Country(codeName: "BT", countryName: "Bhutan"),
     Country(codeName: "BO", countryName: "Bolivia"),
     Country(codeName: "BA", countryName: "Bosnia & Herze"),
-Country(codeName: "BW", countryName: "Botswana"),
+    Country(codeName: "BW", countryName: "Botswana"),
     Country(codeName: "BR", countryName: "Brazil"),
     Country(codeName: "BN", countryName: "Brunei Darussalam"),
     Country(codeName: "BG", countryName: "Bulgaria"),
@@ -37,8 +37,20 @@ Country(codeName: "BW", countryName: "Botswana"),
     Country(codeName: "BI", countryName: "Burundi"),
     Country(codeName: "KH", countryName: "Cambodia"),
     Country(codeName: "CM", countryName: "Cameroon"),
-
-
+    Country(codeName: "CA", countryName: "Canada"),
+    Country(codeName: "CI", countryName: "Ivory Coast"),
+    Country(codeName: "CF", countryName: "Central African Rep"),
+    Country(codeName: "TD", countryName: "Chad"),
+    Country(codeName: "CL", countryName: "Chile"),
+    Country(codeName: "CN", countryName: "China"),
+    Country(codeName: "CO", countryName: "Colombia"),
+    Country(codeName: "CG", countryName: "Congo"),
+    Country(codeName: "CD", countryName: "DR Congo"),
+    Country(codeName: "CR", countryName: "Costa Rica"),
+    Country(codeName: "HR", countryName: "Croatia"),
+    Country(codeName: "CU", countryName: "Cuba"),
+    Country(codeName: "CY", countryName: "Cyprus"),
+    Country(codeName: "CZ", countryName: "Czechia"),
   ];
 
   List<DropdownMenuItem<Country>> _dropdownMenuItems;
