@@ -55,6 +55,13 @@ class _HomeState extends State<Home> {
     Country(codeName: "DP", countryName: "Diamond Princess"),
     Country(codeName: "DJ", countryName: "Djibouti"),
     Country(codeName: "DO", countryName: "Dominican Republic"),
+    Country(codeName: "EC", countryName: "Ecuador"),
+    Country(codeName: "EG", countryName: "Egypt"),
+    Country(codeName: "SV", countryName: "El Salvador"),
+    Country(codeName: "GQ", countryName: "Equatorial Guinea"),
+    Country(codeName: "ER", countryName: "Eritrea"),
+    Country(codeName: "EE", countryName: "Estonia"),
+    Country(codeName: "ET", countryName: "Ethiopia"),
 
   ];
 
