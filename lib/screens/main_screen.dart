@@ -68,6 +68,17 @@ class _HomeState extends State<Home> {
     Country(codeName: "FR", countryName: "France"),
     Country(codeName: "GF", countryName: "French Guiana"),
     Country(codeName: "TF", countryName: "FS Territories"),
+    Country(codeName: "GA", countryName: "Gabon"),
+    Country(codeName: "GM", countryName: "Gambia"),
+    Country(codeName: "GE", countryName: "Georgia"),
+    Country(codeName: "DE", countryName: "Germany"),
+    Country(codeName: "GH", countryName: "Ghana"),
+    Country(codeName: "GR", countryName: "Greece"),
+    Country(codeName: "GL", countryName: "Greenland"),
+    Country(codeName: "GT", countryName: "Guatemala"),
+    Country(codeName: "GN", countryName: "Guinea"),
+    Country(codeName: "GW", countryName: "Guinea-Bissau"),
+    Country(codeName: "GY", countryName: "Guyana"),
   ];
 
   List<DropdownMenuItem<Country>> _dropdownMenuItems;
