@@ -79,6 +79,10 @@ class _HomeState extends State<Home> {
     Country(codeName: "GN", countryName: "Guinea"),
     Country(codeName: "GW", countryName: "Guinea-Bissau"),
     Country(codeName: "GY", countryName: "Guyana"),
+    Country(codeName: "HT", countryName: "Haiti"),
+    Country(codeName: "HN", countryName: "Honduras"),
+    Country(codeName: "HK", countryName: "Hong Kong"),
+    Country(codeName: "HU", countryName: "Hungary")
   ];
 
   List<DropdownMenuItem<Country>> _dropdownMenuItems;
