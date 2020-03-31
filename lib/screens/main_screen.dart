@@ -24,6 +24,21 @@ class _HomeState extends State<Home> {
     Country(codeName: "BD", countryName: "Bangladesh"),
     Country(codeName: "BY", countryName: "Belarus"),
     Country(codeName: "BE", countryName: "Belgium"),
+    Country(codeName: "BZ", countryName: "Belize"),
+    Country(codeName: "BJ", countryName: "Benin"),
+    Country(codeName: "BT", countryName: "Bhutan"),
+    Country(codeName: "BO", countryName: "Bolivia"),
+    Country(codeName: "BA", countryName: "Bosnia & Herze"),
+Country(codeName: "BW", countryName: "Botswana"),
+    Country(codeName: "BR", countryName: "Brazil"),
+    Country(codeName: "BN", countryName: "Brunei Darussalam"),
+    Country(codeName: "BG", countryName: "Bulgaria"),
+    Country(codeName: "BF", countryName: "Burkina Faso"),
+    Country(codeName: "BI", countryName: "Burundi"),
+    Country(codeName: "KH", countryName: "Cambodia"),
+    Country(codeName: "CM", countryName: "Cameroon"),
+
+
   ];
 
   List<DropdownMenuItem<Country>> _dropdownMenuItems;
@@ -138,7 +153,8 @@ class _HomeState extends State<Home> {
                   children: <Widget>[
                     Expanded(child: Text("New Cases Today")),
                     Expanded(
-                        child: Text(snapshot.data.totalNewCasesToday.toString())),
+                        child:
+                            Text(snapshot.data.totalNewCasesToday.toString())),
                   ],
                 ),
                 Row(
@@ -160,7 +176,8 @@ class _HomeState extends State<Home> {
                   children: <Widget>[
                     Expanded(child: Text("Total Serious Cases")),
                     Expanded(
-                        child: Text(snapshot.data.totalSeriousCases.toString())),
+                        child:
+                            Text(snapshot.data.totalSeriousCases.toString())),
                   ],
                 ),
               ],
