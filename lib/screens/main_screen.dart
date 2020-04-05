@@ -282,6 +282,7 @@ class _HomeState extends State<Home> {
   }
 
   Widget countryInfo() {
+    double height = MediaQuery.of(context).size.height / 4;
     return FutureBuilder<CoronaData>(
       future: HttpService().getPost(id: _selectedCountry.code),
       builder: (context, snapshot) {
@@ -311,7 +312,9 @@ class _HomeState extends State<Home> {
             ),
           );
         }
-        return Container(child: Center(child: CircularProgressIndicator()));
+        return Container(
+            padding: EdgeInsets.only(top: height),
+            child: Center(child: CircularProgressIndicator()));
       },
     );
   }
