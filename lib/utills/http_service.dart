@@ -10,7 +10,7 @@ class HttpService {
   Future<CoronaData> getPost({@required String id}) async {
     Response res = await get(getUrl + id);
 
-    if(res.statusCode == 200){
+    if (res.statusCode == 200) {
       List<dynamic> subData = jsonDecode(res.body)["countrydata"];
       debugPrint(subData[0].toString());
       CoronaData coronaData = CoronaData.fromJSON(subData[0]);
