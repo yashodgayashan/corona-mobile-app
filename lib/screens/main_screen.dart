@@ -2,6 +2,9 @@ import 'package:corona_app/utills/corona_info.dart';
 import 'package:corona_app/utills/http_service.dart';
 import 'package:flutter/material.dart';
 import 'package:corona_app/utills/country.dart';
+import 'package:connectivity/connectivity.dart';
+import 'dart:async';
+import 'dart:io';
 
 class Home extends StatefulWidget {
   @override
@@ -312,9 +315,26 @@ class _HomeState extends State<Home> {
             ),
           );
         }
-        return Container(
-            padding: EdgeInsets.only(top: height),
-            child: Center(child: CircularProgressIndicator()));
+
+        return FutureBuilder<bool>(
+            future: _checkConnectivity(),
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                if (snapshot.data == true) {
+                  return Container(
+                      padding: EdgeInsets.only(top: height),
+                      child: Center(child: CircularProgressIndicator()));
+                } else {
+                  return Container(
+                      padding: EdgeInsets.only(top: height),
+                      child: Center(child: Text("Check Connection")));
+                }
+              } else {
+                return Container(
+                    padding: EdgeInsets.only(top: height),
+                    child: Center(child: CircularProgressIndicator()));
+              }
+            });
       },
     );
   }
@@ -354,5 +374,15 @@ class _HomeState extends State<Home> {
         ),
       ),
     );
+  }
+
+  Future<bool> _checkConnectivity() async {
+    var connection = await Connectivity().checkConnectivity();
+    if (connection == ConnectivityResult.mobile ||
+        connection == ConnectivityResult.wifi) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
