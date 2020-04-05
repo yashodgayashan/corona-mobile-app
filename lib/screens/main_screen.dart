@@ -252,11 +252,15 @@ class _HomeState extends State<Home> {
                   flex: 3,
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Container(padding: const EdgeInsets.only(left: 10.0,right: 10.0),
+                    child: Container(
+                      padding: const EdgeInsets.only(left: 10.0, right: 10.0),
                       decoration: BoxDecoration(
+                        color: Colors.grey[300],
                         borderRadius: BorderRadius.circular(15.0),
                         border: Border.all(
-                            color: Colors.grey[700], style: BorderStyle.solid, width: 0.80),
+                            color: Colors.grey[700],
+                            style: BorderStyle.solid,
+                            width: 0.80),
                       ),
                       child: DropdownButtonHideUnderline(
                         child: DropdownButton(
@@ -281,75 +285,71 @@ class _HomeState extends State<Home> {
     return FutureBuilder<CoronaData>(
       future: HttpService().getPost(id: _selectedCountry.code),
       builder: (context, snapshot) {
-        if (snapshot.hasData && snapshot.data.country.country == _selectedCountry.country) {
+        if (snapshot.hasData &&
+            snapshot.data.country.country == _selectedCountry.country) {
           return Padding(
             padding: const EdgeInsets.all(15.0),
             child: Column(
               children: <Widget>[
-                Text(snapshot.data.country.country),
-                Row(
-                  children: <Widget>[
-                    Expanded(child: Text("Total Cases")),
-                    Expanded(child: Text(snapshot.data.totalCases.toString())),
-                  ],
-                ),
-                Row(
-                  children: <Widget>[
-                    Expanded(child: Text("Total Recovered")),
-                    Expanded(
-                        child: Text(snapshot.data.totalRecovered.toString())),
-                  ],
-                ),
-                Row(
-                  children: <Widget>[
-                    Expanded(child: Text("Total Unresolved")),
-                    Expanded(
-                        child: Text(snapshot.data.totalUnresolved.toString())),
-                  ],
-                ),
-                Row(
-                  children: <Widget>[
-                    Expanded(child: Text("Total Deaths")),
-                    Expanded(child: Text(snapshot.data.totalDeaths.toString())),
-                  ],
-                ),
-                Row(
-                  children: <Widget>[
-                    Expanded(child: Text("New Cases Today")),
-                    Expanded(
-                        child:
-                            Text(snapshot.data.totalNewCasesToday.toString())),
-                  ],
-                ),
-                Row(
-                  children: <Widget>[
-                    Expanded(child: Text("New Deaths Today")),
-                    Expanded(
-                        child:
-                            Text(snapshot.data.totalNewDeathsToday.toString())),
-                  ],
-                ),
-                Row(
-                  children: <Widget>[
-                    Expanded(child: Text("Total Active Cases")),
-                    Expanded(
-                        child: Text(snapshot.data.totalActiveCases.toString())),
-                  ],
-                ),
-                Row(
-                  children: <Widget>[
-                    Expanded(child: Text("Total Serious Cases")),
-                    Expanded(
-                        child:
-                            Text(snapshot.data.totalSeriousCases.toString())),
-                  ],
-                ),
+                getStyledRow(
+                    "Total Cases", snapshot.data.totalCases.toString()),
+                getStyledRow(
+                    "Total Recovered", snapshot.data.totalRecovered.toString()),
+                getStyledRow("Total Unresolved",
+                    snapshot.data.totalUnresolved.toString()),
+                getStyledRow(
+                    "Total Deaths", snapshot.data.totalDeaths.toString()),
+                getStyledRow("New Cases Today",
+                    snapshot.data.totalNewCasesToday.toString()),
+                getStyledRow("New Deaths Today",
+                    snapshot.data.totalNewDeathsToday.toString()),
+                getStyledRow("Total Active Cases",
+                    snapshot.data.totalActiveCases.toString()),
+                getStyledRow("Total Serious Cases",
+                    snapshot.data.totalSeriousCases.toString()),
               ],
             ),
           );
         }
         return Container(child: Center(child: CircularProgressIndicator()));
       },
+    );
+  }
+
+  Widget getStyledRow(String label, String value) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 5.0, bottom: 5.0),
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.grey[200],
+          borderRadius: BorderRadius.circular(15.0),
+          border: Border.all(
+              color: Colors.grey[700], style: BorderStyle.solid, width: 1.0),
+        ),
+        child: Row(
+          children: <Widget>[
+            Expanded(
+                flex: 1,
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Text(
+                    label,
+                    style: TextStyle(fontSize: 16.0),
+                  ),
+                )),
+            Expanded(
+                flex: 1,
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Text(
+                    value,
+                    textAlign: TextAlign.end,
+                    style: TextStyle(fontSize: 16.0),
+                  ),
+                )),
+          ],
+        ),
+      ),
     );
   }
 }
