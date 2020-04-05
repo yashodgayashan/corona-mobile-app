@@ -199,11 +199,9 @@ class _HomeState extends State<Home> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _dropdownMenuItems = buildDropDownMenuItems(countries);
     _selectedCountry = _dropdownMenuItems[0].value;
-    post = HttpService().getPost(id: _selectedCountry.code);
   }
 
   List<DropdownMenuItem<Country>> buildDropDownMenuItems(List counties) {
@@ -243,17 +241,30 @@ class _HomeState extends State<Home> {
                 Expanded(
                     flex: 2,
                     child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text("Select Country"),
+                      padding: const EdgeInsets.only(left: 15.0),
+                      child: Text(
+                        "Select Country :",
+                        style: TextStyle(
+                            fontWeight: FontWeight.w600, fontSize: 17.0),
+                      ),
                     )),
                 Expanded(
                   flex: 3,
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: DropdownButton(
-                      value: _selectedCountry,
-                      items: _dropdownMenuItems,
-                      onChanged: onChangedDropDownItem,
+                    child: Container(padding: const EdgeInsets.only(left: 10.0,right: 10.0),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15.0),
+                        border: Border.all(
+                            color: Colors.grey[700], style: BorderStyle.solid, width: 0.80),
+                      ),
+                      child: DropdownButtonHideUnderline(
+                        child: DropdownButton(
+                          value: _selectedCountry,
+                          items: _dropdownMenuItems,
+                          onChanged: onChangedDropDownItem,
+                        ),
+                      ),
                     ),
                   ),
                 ),
@@ -270,7 +281,7 @@ class _HomeState extends State<Home> {
     return FutureBuilder<CoronaData>(
       future: HttpService().getPost(id: _selectedCountry.code),
       builder: (context, snapshot) {
-        if (snapshot.hasData) {
+        if (snapshot.hasData && snapshot.data.country.country == _selectedCountry.country) {
           return Padding(
             padding: const EdgeInsets.all(15.0),
             child: Column(
