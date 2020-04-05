@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:corona_app/utills/country.dart';
 import 'package:connectivity/connectivity.dart';
 import 'dart:async';
-import 'dart:io';
 
 class Home extends StatefulWidget {
   @override
@@ -205,6 +204,11 @@ class _HomeState extends State<Home> {
     super.initState();
     _dropdownMenuItems = buildDropDownMenuItems(countries);
     _selectedCountry = _dropdownMenuItems[0].value;
+    Timer.periodic(Duration(seconds: 10), (Timer t) {
+      setState(() {
+        _selectedCountry;
+      });
+    });
   }
 
   List<DropdownMenuItem<Country>> buildDropDownMenuItems(List counties) {
@@ -327,7 +331,27 @@ class _HomeState extends State<Home> {
                 } else {
                   return Container(
                       padding: EdgeInsets.only(top: height),
-                      child: Center(child: Text("Check Connection")));
+                      child: Center(
+                          child: Column(
+                        children: <Widget>[
+                          Text(
+                            "Check Connection",
+                            style: TextStyle(fontSize: 18.0),
+                          ),
+                          SizedBox(
+                            height: 10.0,
+                          ),
+                          RaisedButton(
+                            onPressed: () {
+                              setState(() {
+                                _selectedCountry;
+                              });
+                            },
+                            child: Text("Referesh"),
+                            color: Colors.grey[200],
+                          )
+                        ],
+                      )));
                 }
               } else {
                 return Container(
